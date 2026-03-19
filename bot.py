@@ -16,7 +16,7 @@ vc = None
 @tasks.loop(minutes=1)
 async def check_time():
     global vc
-    now = datetime.datetime.now().strftime("%H%M")
+    now = datetime.datetime.now(IST).strftime("%H:%M")
     print("Current time:", now)
     guild = bot.get_guild(GUILD_ID)
     if not guild:
@@ -24,7 +24,7 @@ async def check_time():
         
     category = guild.get_channel(CATEGORY_ID)
 
-    if now == "2301" and vc is None:
+    if now == "2320" and vc is None:
         vc = await guild.create_voice_channel("Scheduled VC", category=category)
         print("VC Created")
 
