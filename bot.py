@@ -27,7 +27,7 @@ async def check_time():
         
     category = guild.get_channel(CATEGORY_ID)
 
-    if now == "2320" and vc is None:
+    if now == "2330" and vc is None:
         vc = await guild.create_voice_channel("Scheduled VC", category=category)
         print("VC Created")
 
