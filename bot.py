@@ -8,8 +8,8 @@ import os
 
 TOKEN = os.getenv("TOKEN")
 
-GUILD_ID = "1418109436928458775"
-CATEGORY_ID = "1442032064244486204"
+GUILD_ID = 1418109436928458775
+CATEGORY_ID = 1442032064244486204
 
 intents = discord.Intents.default()
 bot = commands.Bot(command_prefix="!", intents=intents)
@@ -42,11 +42,11 @@ async def check_time():
         
     category = guild.get_channel(CATEGORY_ID)
 
-    if now == "2349" and vc is None:
+    if now == "2356" and vc is None:
         vc = await guild.create_voice_channel("Scheduled VC")
         print("VC Created")
 
-    if now == "2358" and vc is not None:
+    if now == "0010" and vc is not None:
         await vc.delete()
         vc = None
         print("VC Deleted")
