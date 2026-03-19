@@ -24,11 +24,11 @@ async def check_time():
         
     category = guild.get_channel(CATEGORY_ID)
 
-    if now == "1800" and vc is None:
+    if now == "2245" and vc is None:
         vc = await guild.create_voice_channel("Scheduled VC", category=category)
         print("VC Created")
 
-    if now == "2000" and vc is not None:
+    if now == "2358" and vc is not None:
         await vc.delete()
         vc = None
         print("VC Deleted")
