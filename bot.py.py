@@ -17,7 +17,7 @@ vc = None
 async def check_time():
     global vc
     now = datetime.datetime.now().strftime("%H%M")
-
+    print("Current time:", now)
     guild = bot.get_guild(GUILD_ID)
     if not guild:
         return
@@ -32,6 +32,7 @@ async def check_time():
         await vc.delete()
         vc = None
         print("VC Deleted")
+        
 
 @bot.event
 async def on_ready():
