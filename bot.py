@@ -20,16 +20,20 @@ vc = None
 async def check_time():
     global vc
 
-    guild = bot.get_guild(GUILD_ID)
-    category = guild.get_channel(CATEGORY_ID)
+    print("GUILD_ID:", GUILD_ID)
 
-   print("GUILD_ID:", GUILD_ID)
-    print("CATEGORY_ID:", CATEGORY_ID)
+    guild = discord.utils.get(bot.guilds, id=GUILD_ID)
+    category = None
 
-    if vc is None:
-        vc = await guild.create_voice_channel("TEST VC", category=category)
+    if guild:
+        category = guild.get_channel(CATEGORY_ID)
+
+    print("Guild:", guild)
+    print("Category:", category)
+
+    if guild and vc is None:
+        vc = await guild.create_voice_channel("TEST VC")
         print("VC Created")
-        
     now = datetime.datetime.now(IST).strftime("%H:%M")
     print("Current time:", now)
     guild = bot.get_guild(GUILD_ID)
@@ -38,7 +42,7 @@ async def check_time():
         
     category = guild.get_channel(CATEGORY_ID)
 
-    if now == "2346" and vc is None:
+    if now == "2349" and vc is None:
         vc = await guild.create_voice_channel("Scheduled VC")
         print("VC Created")
 
