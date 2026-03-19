@@ -1,6 +1,9 @@
 import discord
 from discord.ext import commands, tasks
 import datetime
+import datetime
+import pytz
+IST = pytz.timezone("Asia/Kolkata")
 import os
 
 TOKEN = os.getenv("TOKEN")
